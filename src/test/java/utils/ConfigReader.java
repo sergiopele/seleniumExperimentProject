@@ -4,10 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigReader {
-	Properties prop;
+abstract class ConfigReader {
+	private static Properties prop;
 	
-	public Properties readProperties(String filepath) {
+	public static Properties readProperties(String filepath) {
 		try {
 			
 			FileInputStream file = new FileInputStream(filepath);
@@ -20,7 +20,7 @@ public class ConfigReader {
 		return prop;
 	}
 	
-	public String getProperty(String target) {
+	public static String getProperty(String target) {
 		return prop.getProperty(target);
 	}
 }
